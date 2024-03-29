@@ -62,10 +62,10 @@ def start_class(course_code):
 
 def get_attendance_percentages(student_id):
     # returns attendance percentages of a particular student in all classes of their current semester
-    # returns a dict of {course_id: percentage}
+    # returns a list of [course code, course name, percentage]
 
     get_att_query = (
-        'SELECT c.course_code, (a.attended) * 100.0 / c.classes_taken '
+        'SELECT c.course_code, c.course_name, (a.attended) * 100.0 / c.classes_taken '
         'AS attendance_percentage '
         'FROM courses c '
         'JOIN attendance a ON c.course_code = a.course_id '
@@ -77,14 +77,12 @@ def get_attendance_percentages(student_id):
 
     db_cursor.execute(get_att_query, [student_id])
     attendances = db_cursor.fetchall()
-    attendance_dict = {}
     for x in attendances:
-        attendance_dict[x[0]] = x[1]
+        x = list(x)
+        x[2] = float(x[2])
+        print(x)
 
-    #for (k, v) in attendance_dict.items():
-    #    print(k, v)
-    
-    return attendance_dict
+    return attendances
 
     
 #make_new_course(256, 227, "Computer architecture and organization", 2, 4)
