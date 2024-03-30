@@ -4,9 +4,8 @@ from cvzone.FaceDetectionModule import FaceDetector
 from time import time
 
 
-
-if __name__ == '__main__':
-    id = 1001 #Change to make it Command Line Argument...
+def get_save_face(in_id):
+    id = in_id #Change to make it Command Line Argument...
 
 
     output_folder_path = 'images'
@@ -76,3 +75,7 @@ if __name__ == '__main__':
 
         if key == ord('q'):
             break
+    
+if __name__ == '__main__':
+    id = 1001
+    get_save_face(id)
