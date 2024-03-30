@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content%}
+<div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='student.jpeg') }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">student</h5>
+      <p class="card-text">Check your attendance</p>
+      <a href="{{url_for('student')}}" class="btn btn-primary">Click</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='prof.jpeg') }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">professor</h5>
+      <p class="card-text">check and update your attendance</p>
+      <a href="{{url_for('professor')}}" class="btn btn-primary">Click</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='admin.jpeg') }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">admin</h5>
+      <p class="card-text">Do you admin stuff</p>
+      <a href="{{url_for('admin')}}" class="btn btn-primary">Click</a>
+    </div>
+  </div>
+{% endblock%}
