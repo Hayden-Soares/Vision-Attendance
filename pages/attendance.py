@@ -18,13 +18,9 @@ def loadEncodings(encode_path):
     
     return list_of_encodings, student_ids
 
-
-
-
-if __name__ == '__main__':
-    
+def detect_student():
     #Load in, and check!
-    encode_path = "/Users/haydensoares/Desktop/front/pages/Encodings.p"
+    encode_path = "Encodings.p"
     list_of_encodings, student_ids = loadEncodings(encode_path)
     print(student_ids) #NOTE: ids are strings!!!
     print(len(list_of_encodings))
@@ -35,7 +31,7 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     cap.set(3, 640)
     cap.set(4, 480)
-    folder_path = '/Users/haydensoares/Desktop/front/pages/images'
+    folder_path = 'images'
 
     while True:
         success, img = cap.read()
@@ -74,10 +70,12 @@ if __name__ == '__main__':
         person = cv2.imread(pp_loc)
         #Show their stored pic, and bbox in live feed
         #cv2.namedWindow('frame', cv2.WINDOW_AUTOSIZE)
-        cv2.imshow("Last Recognized", person)
+        #cv2.imshow("Last Recognized", person)
         cv2.imshow("Face Recognition", img)
 
         key = 0xFF & cv2.waitKey(1)
         if key == ord('q'):
             break
+
+        return id
 
