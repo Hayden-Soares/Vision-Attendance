@@ -136,7 +136,6 @@ def get_login(db, username, password):
         db_cursor.execute(
             "SELECT CONCAT(first_name, \' \', last_name) AS name from student "
             "WHERE id = %s", [s[0]])
-        
         name = db_cursor.fetchone()
         st = [0, s[0], name[0]]
         return st
@@ -144,10 +143,18 @@ def get_login(db, username, password):
     else:
         db_cursor.execute("SELECT * FROM prof_user_map WHERE user_id = %s", [user[0]])
         p = db_cursor.fetchone()
-        pr = [1, p[0]]
+        db_cursor.execute(
+            "SELECT CONCAT(first_name, \' \', last_name) AS name from profs "
+            "WHERE id = %s", [p[0]])
+        name = db_cursor.fetchone()
+        pr = [1, p[0], name[0]]
         return pr
-
-
+    
+def get_all_courses(db, prof_id):
+    db_cursor = db.cursor()
+    db_cursor.execute("SELECT course_code, course_name FROM courses WHERE taken_by = %s", [prof_id])
+    c = db_cursor.fetchall()
+    return c
 
 
 #make_new_course(256, 227, "Computer architecture and organization", 2, 4)

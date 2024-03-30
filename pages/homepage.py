@@ -34,7 +34,15 @@ def login():
 
 @app.route("/professor")
 def professor():    
-   return "hello world"
+   return render_template("professor.html", title = "professor")
+
+@app.route("/student")
+def student():    
+   return render_template("student.html", title = "student")
+
+@app.route("/admin")
+def admin():    
+   return render_template("admin.html", title = "admin")
 
 if __name__ == "__main__":
     app.run(debug = True)
