@@ -4,6 +4,7 @@ import pickle
 import face_recognition
 import numpy as np
 import cvzone
+import time
 
 #counter = 0
 
@@ -65,17 +66,19 @@ def detect_student():
 
         if(id == -1): continue
         #If person was detected:
-        pp_file = id + ".jpg"
-        pp_loc = os.path.join(folder_path, pp_file)
-        person = cv2.imread(pp_loc)
+        #pp_file = id + ".jpg"
+        #pp_loc = os.path.join(folder_path, pp_file)
+        #person = cv2.imread(pp_loc)
         #Show their stored pic, and bbox in live feed
         #cv2.namedWindow('frame', cv2.WINDOW_AUTOSIZE)
         #cv2.imshow("Last Recognized", person)
         cv2.imshow("Face Recognition", img)
-
-        key = 0xFF & cv2.waitKey(1)
-        if key == ord('q'):
-            break
-
+        
+        #key = 0xFF & cv2.waitKey(1)
+        #if key == ord('q'):
+         #   break
+        
+        
+        time.sleep(5)
         return id
 
