@@ -70,7 +70,7 @@ def get_save_face(in_id):
         key = 0xFF & cv2.waitKey(1)
         if key == ord('c') and save:
             # ---- Save Image ---- #
-            cv2.imwrite(f'{output_folder_path}/{id}.jpg', faceImg)
+            #cv2.imwrite(f'{output_folder_path}/{id}.jpg', faceImg)
             save = False
 
         if key == ord('q'):
