@@ -9,8 +9,9 @@ The application features 3 users -
 Moreover, the application features a **spoofing classifier** which can tell if a student is faking attendance by showing a photo of them or a real face. This is useful in a university environment where proxy attendance is common and it is difficult to implement electronic or biometric ID verification.
 
 ## Features
-- Face recognition and matching implemented using **HOG object detection** in real time.
-- **YOLO v8** used for implementation of spoofing classifier.
-- Web application developed in **Flask** using **jinja2 templating engine**.
-- Backend RDBMS implemented using **SQL**  and connected through mysql connector in python.
+- Face recognition and matching implemented using a pre-trained **[FaceNet pipeline](https://github.com/timesler/facenet-pytorch)** (MTCNN for face localization, InceptionResNetV1 for embedding generation), in real time.
+- **YOLO v8** used for implementation of spoofing classifier -> TODO: need to retrain (due to lost weights) and incorporate as a check before above pipeline.
+- Simple Web Application, developed with **React** frontend for ease in development and **Flask** backend to enable the CV pipeline to mesh easily with the CRUD API.  
+- Backend RDBMS + Bucket Storage + Vectorized-Embeddings(**pgvector**, TODO) implemented using **5NF** PostgreSQL database, managed in **Supabase**.
 
+## Database Design
