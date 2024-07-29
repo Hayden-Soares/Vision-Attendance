@@ -142,6 +142,8 @@ def generate_single_embedding(image_path):
     img_embedding = encoding_generator(img_cropped.unsqueeze(0))#Shape: [1, 512]
 
     print(img_embedding.shape)
+    return np.squeeze(img_embedding.numpy())#pgvector has support for numpy array, but not torch tensor
+
 
 def send_user_reg_to_remote():
     #TODO!

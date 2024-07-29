@@ -2,3 +2,5 @@ venv
 
 *.jpg
 *.p
+*.pyc
+backend/.env
