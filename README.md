@@ -15,4 +15,4 @@ Moreover, the application features a **spoofing classifier** which can tell if a
 - Backend RDBMS + Bucket Storage + Vectorized-Embeddings(**pgvector**, TODO) implemented using **5NF** PostgreSQL database, managed in **Supabase**.
 
 ## Database Design
-![Database Design](./demo-files/database-design.jpeg)
+![Database Design](./demo-files/database-design.png)
