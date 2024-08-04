@@ -4,3 +4,4 @@ venv
 *.p
 *.pyc
 backend/.env
+*.env
